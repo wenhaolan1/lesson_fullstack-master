@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+</head>
+<body>
+    <script>
+let goods={
+    name:null,
+    store:null,
+    price:null,
+
+}
+const shopcar=[
+    {
+    name:'你不知道的JavaScript',
+    store:'出版集团',
+    price:50,
+},
+{
+    name:'比尔盖茨推荐',
+    store:'中信书店',
+    price:45,
+}
+];
+function totil(){
+    let sum=0;
+    for(let i=0;i<shopcar.length;i++){
+        sum+=shopcar[i].price;
+    }
+
+    console.log('总价为'+sum);
+}
+
+totil();
+    </script>
+</body>
+</html>

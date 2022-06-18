@@ -1,0 +1,12 @@
+/*  mark组件， 商品 */
+.weui-mark{
+    padding: 0.625em 0 0 0.625em;
+    -webhit-overflow-scrolling:touch;
+}
+.weui-mark li{
+    padding-right: 0.625em;
+    padding-right: 0.625em;
+    float: left;/* 浮动 */
+    position: relative;
+    width: 50%;
+}

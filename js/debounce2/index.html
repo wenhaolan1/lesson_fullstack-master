@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: green;
+            text-align: center;
+            color: white;
+            line-height: 500px;
+            font-size: 50px;
+            /* margin: 0 auto; */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">0</div>
+    <script>
+        // 频繁     降到1s  执行一次    定时器
+        const box = document.querySelector('.box');
+        let count = 0;
+        // 限流 降低频率
+        // 为何是闭包
+        // 函数嵌套了函数
+        // 内部函数返回了
+        function debounce (func, wait) {
+            // 闭包空间 变量
+            // 事件处理函数
+            var timeout // 永生
+            return function () {
+                // 反复移动鼠标， 不执行， 最后一次执行
+                // console.log('----------')
+                // func(event);
+                var context = this; 
+                var args = arguments;
+                clearTimeout(timeout);// 停止触发定时器
+                // 定时器ID
+                timeout = setTimeout(function() {
+                    func.apply(context, args);
+                }, wait)
+            }
+        }
+        // mouseover 要做的事情
+        function getUserAction (e) {
+            // console.log('/////////');
+            console.log(e);
+            box.innerHTML = ++count;
+        }
+        // 函数的参数或函数的返回值是函数时， 叫高阶函数  
+        box.addEventListener('mousemove', debounce(getUserAction, 10))
+    </script>
+</body>
+</html>

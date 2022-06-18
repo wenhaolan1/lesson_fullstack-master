@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    #content {
+        /* 不显示仍然占据文档流 */
+        /* visibility: hidden; */
+        /* display: none;让元素脱离文档流 */
+        /* position: absolute; 
+            left: -100%; */
+        /* 行内块级 */
+        /* 行内块级元素 即不换行， 又可以做盒子， 设置宽高 */
+        /* display: inline-block;
+        /* inline 行内元素 不能设置宽和高的 */
+        /* width: 200px;
+        height: 200px;
+        background-color: green; 
+        transform: scale(0,0); */ 
+        /* scale: 0; */
+        /* opacity: 0; */
+        /* display: inline-block; */
+        /* translate 相对于 元素本身 */
+        /* transform: translate(-1000%); */
+        /* 离开文档流 */
+        /* float: left; */
+    }
+</style>
+<body>
+    <div id="app">
+        <div id="ep1">
+            <span id="content">彪悍的人生不需要解释</span>
+            <input type="text" id="input" value="彪悍的人生不需要解释" />
+            <input type="button" id="save" value="Save" >
+            <input type="button" id="cancel" value="Cancel">
+        </div>
+        <div>123</div>
+    </div>
+    <script>
+        // js基于原型式面向对象
+        function EditInPlace(){
+            // 有什么好处呢？把DOM 元素作为属性
+            this.content = document.getElementById('content');
+            this.save = document.getElementById('save');
+            this.cancel = document.getElementById('cancel');
+            this.input = document.getElementById('input');
+
+            this.bindEvevts();
+        }
+        EditInPlace.prototype = {
+            // 罗列方法
+        converToText() {;
+        this.content.style.display = 'inline'
+        this.save.style.display = 'none';
+        this.cancel.style.display = 'none';
+        this.input.style.display = 'none';
+            },
+        converToEdit(){
+            this.content.style.display = 'none';
+            this.save.style.display = 'inline';
+            this.input.style.display = 'inline';
+            this. cancel.style.display = 'inline';
+            },
+            bindEvevts() {
+                // 函数是事件的回调函数 this指向元素
+                // constructor
+                // this-> editor
+                // let that = this; // 作用域链
+                this.content.addEventListener('dblclick', () => {
+                    // 双击的时候
+                    // this 丢失， 被覆盖
+                    // 箭头函数内部没有this
+                    this.converToEdit();
+                });
+            }
+        }        
+        // html+css
+        window.onload = function(){
+            let editor = new EditInPlace();
+            editor.converToText;
+
+        }
+      
+        // js 来切换显示或隐藏
+        // const save = document.getElementById('save');
+        // const cancel = document.getElementById('cancel');
+        // const input = document.getElementById('input');
+        // const span = document.getElementById('content');
+        // //  DOM  动态样式
+
+        // function converToText() {
+        // save.style.display = 'none';
+        // cancel.style.display = 'none';
+        // input.style.display = 'none';
+        // }
+
+        // converToText();
+        // // 函数式编程 组织代码
+        // // 功能复杂， 流程式的代码不适合
+        // // 函数封装， 被执行， 复用
+        // function converToEdit(){
+        //     content.style.display = 'inline';
+        //     content.style.display = 'none';
+        //     save.style.display = 'inline';
+        //     input.style.display = 'inline';
+        //     cancel.style.display = 'inline';
+        // }
+
+        // content.addEventListener('dblclick' ,function() {
+        //     converToEdit();
+        //     input.focus();
+        // })
+
+        // save.addEventListener('click',function(){
+        //     // 拿到当前的值， 并动态设置span
+        //     const val = input.val;
+        //     content.innerText();
+        //     converToText();
+        // })
+
+        // cancel.addEventListener('click',function(){
+        //     converToText();
+        // })
+        // setTimeout(()=> {
+            // content.style.display = 'none';
+            // save.style.display = 'inline';
+            // input.style.display = 'inline';
+            // cancel.style.display = 'inline';
+        // },3000)
+    </script>
+</body>
+</html>

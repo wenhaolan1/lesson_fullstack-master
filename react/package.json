@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "react-weui": "^1.2.3",
+    "weui": "^2.5.8",
+    "weui-react": "^0.0.0"
+  }
+}

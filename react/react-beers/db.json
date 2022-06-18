@@ -1,0 +1,11 @@
+{
+    "beers": [{
+        "id": 1,
+        "title": "百威",
+        "pic": "https://img11.360buyimg.com/n7/jfs/t1/134175/27/28106/450362/626747eeEac924c6e/bb65d4d35ed7ea93.jpg"
+      }, {
+        "id": 2,
+        "title": "雪花",
+        "pic": "https://img14.360buyimg.com/n7/jfs/t1/99968/6/29938/155018/628f620aE4d6464c8/2ebf3117416e4f73.jpg"
+      }]
+}

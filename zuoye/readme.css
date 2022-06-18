@@ -1,0 +1,39 @@
+.class
+.intro
+{ 
+background-color:yellow;
+}
+#id
+#firstname
+{ 
+background-color:yellow;
+}
+*
+*
+{ 
+background-color:yellow;
+}
+element
+p
+{ 
+background-color:yellow;
+}
+element.class 
+p.intro { 
+    background-color: yellow;
+  }
+  element>element
+  div>p
+{ 
+background-color:yellow;
+}
+element+element
+div+p
+{ 
+background-color:yellow;
+}
+element1~element2
+p~ul
+{
+background:#ff0000;
+}
